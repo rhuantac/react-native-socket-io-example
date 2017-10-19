@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, AsyncStorage } from 'react-native';
-import SocketIOClient from 'socket.io-client';
+import SocketIOClient from 'socket.io-client/dist/socket.io.js';
 import { GiftedChat } from 'react-native-gifted-chat';
 
 const USER_ID = '@userId';
@@ -18,7 +18,7 @@ class Main extends React.Component {
     this.onSend = this.onSend.bind(this);
     this._storeMessages = this._storeMessages.bind(this);
 
-    this.socket = SocketIOClient('http://localhost:3000');
+    this.socket = SocketIOClient('http://192.168.74.175:3000');
     this.socket.on('message', this.onReceivedMessage);
     this.determineUser();
   }
